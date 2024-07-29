@@ -16,9 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$WeatherEntity {
-  double get temp => throw _privateConstructorUsedError;
-  double get tempMin => throw _privateConstructorUsedError;
-  double get tempMax => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get main => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get icon => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $WeatherEntityCopyWith<WeatherEntity> get copyWith =>
@@ -31,7 +32,7 @@ abstract class $WeatherEntityCopyWith<$Res> {
           WeatherEntity value, $Res Function(WeatherEntity) then) =
       _$WeatherEntityCopyWithImpl<$Res, WeatherEntity>;
   @useResult
-  $Res call({double temp, double tempMin, double tempMax});
+  $Res call({int id, String main, String description, String icon});
 }
 
 /// @nodoc
@@ -47,23 +48,28 @@ class _$WeatherEntityCopyWithImpl<$Res, $Val extends WeatherEntity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? temp = null,
-    Object? tempMin = null,
-    Object? tempMax = null,
+    Object? id = null,
+    Object? main = null,
+    Object? description = null,
+    Object? icon = null,
   }) {
     return _then(_value.copyWith(
-      temp: null == temp
-          ? _value.temp
-          : temp // ignore: cast_nullable_to_non_nullable
-              as double,
-      tempMin: null == tempMin
-          ? _value.tempMin
-          : tempMin // ignore: cast_nullable_to_non_nullable
-              as double,
-      tempMax: null == tempMax
-          ? _value.tempMax
-          : tempMax // ignore: cast_nullable_to_non_nullable
-              as double,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      main: null == main
+          ? _value.main
+          : main // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      icon: null == icon
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -76,7 +82,7 @@ abstract class _$$WeatherEntityImplCopyWith<$Res>
       __$$WeatherEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double temp, double tempMin, double tempMax});
+  $Res call({int id, String main, String description, String icon});
 }
 
 /// @nodoc
@@ -90,23 +96,28 @@ class __$$WeatherEntityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? temp = null,
-    Object? tempMin = null,
-    Object? tempMax = null,
+    Object? id = null,
+    Object? main = null,
+    Object? description = null,
+    Object? icon = null,
   }) {
     return _then(_$WeatherEntityImpl(
-      temp: null == temp
-          ? _value.temp
-          : temp // ignore: cast_nullable_to_non_nullable
-              as double,
-      tempMin: null == tempMin
-          ? _value.tempMin
-          : tempMin // ignore: cast_nullable_to_non_nullable
-              as double,
-      tempMax: null == tempMax
-          ? _value.tempMax
-          : tempMax // ignore: cast_nullable_to_non_nullable
-              as double,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      main: null == main
+          ? _value.main
+          : main // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      icon: null == icon
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -115,18 +126,23 @@ class __$$WeatherEntityImplCopyWithImpl<$Res>
 
 class _$WeatherEntityImpl implements _WeatherEntity {
   const _$WeatherEntityImpl(
-      {required this.temp, required this.tempMin, required this.tempMax});
+      {required this.id,
+      required this.main,
+      required this.description,
+      required this.icon});
 
   @override
-  final double temp;
+  final int id;
   @override
-  final double tempMin;
+  final String main;
   @override
-  final double tempMax;
+  final String description;
+  @override
+  final String icon;
 
   @override
   String toString() {
-    return 'WeatherEntity(temp: $temp, tempMin: $tempMin, tempMax: $tempMax)';
+    return 'WeatherEntity(id: $id, main: $main, description: $description, icon: $icon)';
   }
 
   @override
@@ -134,13 +150,15 @@ class _$WeatherEntityImpl implements _WeatherEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WeatherEntityImpl &&
-            (identical(other.temp, temp) || other.temp == temp) &&
-            (identical(other.tempMin, tempMin) || other.tempMin == tempMin) &&
-            (identical(other.tempMax, tempMax) || other.tempMax == tempMax));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.main, main) || other.main == main) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.icon, icon) || other.icon == icon));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, temp, tempMin, tempMax);
+  int get hashCode => Object.hash(runtimeType, id, main, description, icon);
 
   @JsonKey(ignore: true)
   @override
@@ -151,16 +169,19 @@ class _$WeatherEntityImpl implements _WeatherEntity {
 
 abstract class _WeatherEntity implements WeatherEntity {
   const factory _WeatherEntity(
-      {required final double temp,
-      required final double tempMin,
-      required final double tempMax}) = _$WeatherEntityImpl;
+      {required final int id,
+      required final String main,
+      required final String description,
+      required final String icon}) = _$WeatherEntityImpl;
 
   @override
-  double get temp;
+  int get id;
   @override
-  double get tempMin;
+  String get main;
   @override
-  double get tempMax;
+  String get description;
+  @override
+  String get icon;
   @override
   @JsonKey(ignore: true)
   _$$WeatherEntityImplCopyWith<_$WeatherEntityImpl> get copyWith =>

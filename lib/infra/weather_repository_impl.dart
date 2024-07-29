@@ -1,9 +1,9 @@
 import 'package:http/http.dart' as http;
 import 'package:fpdart/fpdart.dart';
 import 'package:weather_app/core/core.dart';
-import 'package:weather_app/infra/weather_dto.dart';
 
 import '../domain/domain.dart';
+import 'dtos/dtos.dart';
 
 class WeatherRepositoryImpl implements WeatherRepository {
   final HttpAdapter httpAdapter;
@@ -15,7 +15,7 @@ class WeatherRepositoryImpl implements WeatherRepository {
   });
 
   @override
-  Future<Either<Failure, WeatherEntity>> requestWeather({
+  Future<Either<Failure, WeatherGeneralEntity>> requestWeather({
     required String lat,
     required String lon,
   }) async {
@@ -23,7 +23,7 @@ class WeatherRepositoryImpl implements WeatherRepository {
       final url =
           '${EnviorementMapper.apiUrlWeather}lat=$lat&lon=$lon&appid=${EnviorementMapper.apiKey}';
       final response = await client.get(Uri.parse(url));
-      return right(WeatherDto.fromJson(response.body));
+      return right(WeatherGeneralDto.fromJson(response.body));
     } catch (e) {
       return left(
         Failure(

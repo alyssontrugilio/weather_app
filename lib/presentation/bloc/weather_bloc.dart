@@ -21,7 +21,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   Future<void> _onWeatherEvent(WeatherEvent event, Emitter<WeatherState> emit) {
     return event.map(
       submitted: (_) async {
-        Either<Failure, WeatherEntity>? failureOrSuccess;
         emit(
           state.copyWith(
             failureOrSuccess: none(),
@@ -29,7 +28,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
           ),
         );
 
-        failureOrSuccess = await _requestWeather(
+        final failureOrSuccess = await _requestWeather(
           lat: state.lat,
           lon: state.lon,
         );

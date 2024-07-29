@@ -30,7 +30,7 @@ class _WeatherPageState extends State<WeatherPage> {
     return BlocProvider.value(
       value: formBloc,
       child: BlocBuilder<WeatherBloc, WeatherState>(
-        buildWhen: (p, c) => p.isLoading != c.isLoading,
+        buildWhen: (_, c) => c.failureOrSuccess.isSome(),
         builder: (context, state) {
           return Scaffold(
             body: Padding(
@@ -62,7 +62,7 @@ class _WeatherPageState extends State<WeatherPage> {
                     },
                     child: const Text('Consultar'),
                   ),
-                  Text(state.weather.temp.toString())
+                  Text(state.weather.main.temp.toString())
                 ],
               ),
             ),

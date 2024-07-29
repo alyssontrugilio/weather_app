@@ -468,11 +468,11 @@ abstract class _LonChanged implements WeatherEvent {
 
 /// @nodoc
 mixin _$WeatherState {
-  WeatherEntity get weather => throw _privateConstructorUsedError;
+  WeatherGeneralEntity get weather => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   String get lon => throw _privateConstructorUsedError;
   String get lat => throw _privateConstructorUsedError;
-  Option<Either<Failure, WeatherEntity>> get failureOrSuccess =>
+  Option<Either<Failure, WeatherGeneralEntity>> get failureOrSuccess =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -487,13 +487,13 @@ abstract class $WeatherStateCopyWith<$Res> {
       _$WeatherStateCopyWithImpl<$Res, WeatherState>;
   @useResult
   $Res call(
-      {WeatherEntity weather,
+      {WeatherGeneralEntity weather,
       bool isLoading,
       String lon,
       String lat,
-      Option<Either<Failure, WeatherEntity>> failureOrSuccess});
+      Option<Either<Failure, WeatherGeneralEntity>> failureOrSuccess});
 
-  $WeatherEntityCopyWith<$Res> get weather;
+  $WeatherGeneralEntityCopyWith<$Res> get weather;
 }
 
 /// @nodoc
@@ -519,7 +519,7 @@ class _$WeatherStateCopyWithImpl<$Res, $Val extends WeatherState>
       weather: null == weather
           ? _value.weather
           : weather // ignore: cast_nullable_to_non_nullable
-              as WeatherEntity,
+              as WeatherGeneralEntity,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -535,14 +535,14 @@ class _$WeatherStateCopyWithImpl<$Res, $Val extends WeatherState>
       failureOrSuccess: null == failureOrSuccess
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Option<Either<Failure, WeatherEntity>>,
+              as Option<Either<Failure, WeatherGeneralEntity>>,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $WeatherEntityCopyWith<$Res> get weather {
-    return $WeatherEntityCopyWith<$Res>(_value.weather, (value) {
+  $WeatherGeneralEntityCopyWith<$Res> get weather {
+    return $WeatherGeneralEntityCopyWith<$Res>(_value.weather, (value) {
       return _then(_value.copyWith(weather: value) as $Val);
     });
   }
@@ -557,14 +557,14 @@ abstract class _$$WeatherStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {WeatherEntity weather,
+      {WeatherGeneralEntity weather,
       bool isLoading,
       String lon,
       String lat,
-      Option<Either<Failure, WeatherEntity>> failureOrSuccess});
+      Option<Either<Failure, WeatherGeneralEntity>> failureOrSuccess});
 
   @override
-  $WeatherEntityCopyWith<$Res> get weather;
+  $WeatherGeneralEntityCopyWith<$Res> get weather;
 }
 
 /// @nodoc
@@ -588,7 +588,7 @@ class __$$WeatherStateImplCopyWithImpl<$Res>
       weather: null == weather
           ? _value.weather
           : weather // ignore: cast_nullable_to_non_nullable
-              as WeatherEntity,
+              as WeatherGeneralEntity,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -604,7 +604,7 @@ class __$$WeatherStateImplCopyWithImpl<$Res>
       failureOrSuccess: null == failureOrSuccess
           ? _value.failureOrSuccess
           : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Option<Either<Failure, WeatherEntity>>,
+              as Option<Either<Failure, WeatherGeneralEntity>>,
     ));
   }
 }
@@ -620,7 +620,7 @@ class _$WeatherStateImpl implements _WeatherState {
       required this.failureOrSuccess});
 
   @override
-  final WeatherEntity weather;
+  final WeatherGeneralEntity weather;
   @override
   final bool isLoading;
   @override
@@ -628,7 +628,7 @@ class _$WeatherStateImpl implements _WeatherState {
   @override
   final String lat;
   @override
-  final Option<Either<Failure, WeatherEntity>> failureOrSuccess;
+  final Option<Either<Failure, WeatherGeneralEntity>> failureOrSuccess;
 
   @override
   String toString() {
@@ -662,15 +662,15 @@ class _$WeatherStateImpl implements _WeatherState {
 
 abstract class _WeatherState implements WeatherState {
   const factory _WeatherState(
-      {required final WeatherEntity weather,
+      {required final WeatherGeneralEntity weather,
       required final bool isLoading,
       required final String lon,
       required final String lat,
-      required final Option<Either<Failure, WeatherEntity>>
+      required final Option<Either<Failure, WeatherGeneralEntity>>
           failureOrSuccess}) = _$WeatherStateImpl;
 
   @override
-  WeatherEntity get weather;
+  WeatherGeneralEntity get weather;
   @override
   bool get isLoading;
   @override
@@ -678,7 +678,7 @@ abstract class _WeatherState implements WeatherState {
   @override
   String get lat;
   @override
-  Option<Either<Failure, WeatherEntity>> get failureOrSuccess;
+  Option<Either<Failure, WeatherGeneralEntity>> get failureOrSuccess;
   @override
   @JsonKey(ignore: true)
   _$$WeatherStateImplCopyWith<_$WeatherStateImpl> get copyWith =>

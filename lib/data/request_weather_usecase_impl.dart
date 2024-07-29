@@ -9,7 +9,7 @@ class RequestWeatherUseCaseImpl implements RequestWeatherUseCase {
     required this.repository,
   });
   @override
-  Future<Either<Failure, WeatherEntity>> call({
+  Future<Either<Failure, WeatherGeneralEntity>> call({
     required String lat,
     required String lon,
   }) {

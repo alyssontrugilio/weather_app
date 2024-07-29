@@ -4,16 +4,18 @@ part 'weather_entity.freezed.dart';
 @freezed
 class WeatherEntity with _$WeatherEntity {
   const factory WeatherEntity({
-    required double temp,
-    required double tempMin,
-    required double tempMax,
+    required int id,
+    required String main,
+    required String description,
+    required String icon,
   }) = _WeatherEntity;
 
   factory WeatherEntity.empty() {
     return const WeatherEntity(
-      temp: 0.0,
-      tempMin: 0.0,
-      tempMax: 0.0,
+      id: 0,
+      main: '',
+      description: '',
+      icon: '',
     );
   }
 }

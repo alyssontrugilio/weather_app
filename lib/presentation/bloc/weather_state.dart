@@ -3,16 +3,16 @@ part of 'weather_bloc.dart';
 @freezed
 class WeatherState with _$WeatherState {
   const factory WeatherState({
-    required WeatherEntity weather,
+    required WeatherGeneralEntity weather,
     required bool isLoading,
     required String lon,
     required String lat,
-    required Option<Either<Failure, WeatherEntity>> failureOrSuccess,
+    required Option<Either<Failure, WeatherGeneralEntity>> failureOrSuccess,
   }) = _WeatherState;
 
   factory WeatherState.initial() {
     return WeatherState(
-      weather: WeatherEntity.empty(),
+      weather: WeatherGeneralEntity.empty(),
       isLoading: false,
       failureOrSuccess: none(),
       lat: '',
