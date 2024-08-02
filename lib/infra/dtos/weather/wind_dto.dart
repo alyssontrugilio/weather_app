@@ -1,4 +1,4 @@
-import '../../domain/domain.dart';
+import '../../../domain/domain.dart';
 
 extension WindDto on WindEntity {
   static WindEntity fromMap(Map<String, dynamic> data) {

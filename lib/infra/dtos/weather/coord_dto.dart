@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../../domain/domain.dart';
+import '../../../domain/domain.dart';
 
 extension CoordDto on CoordEntity {
   static CoordEntity fromMap(Map<String, dynamic> data) {

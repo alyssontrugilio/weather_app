@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../../domain/domain.dart';
+import '../../../domain/domain.dart';
 
 extension MainDto on MainEntity {
   static MainEntity fromMap(dynamic data) {

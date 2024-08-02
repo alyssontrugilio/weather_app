@@ -1,8 +1,7 @@
 import 'dart:convert';
 
-import 'package:weather_app/infra/dtos/dtos.dart';
-
-import '../../domain/domain.dart';
+import '../../../domain/domain.dart';
+import 'weather.dart';
 
 extension WeatherGeneralDto on WeatherGeneralEntity {
   static WeatherGeneralEntity fromMap(Map<String, dynamic> data) {

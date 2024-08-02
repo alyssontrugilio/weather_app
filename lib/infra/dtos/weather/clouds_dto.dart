@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../../domain/domain.dart';
+import '../../../domain/domain.dart';
 
 extension CloudsDto on CloudsEntity {
   static CloudsEntity fromMap(Map<String, dynamic> data) {

@@ -1,4 +1,4 @@
-import '../../domain/domain.dart';
+import '../../../domain/domain.dart';
 
 extension WeatherDto on WeatherEntity {
   static WeatherEntity fromMap(Map<String, dynamic> data) {

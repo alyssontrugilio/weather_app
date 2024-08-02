@@ -1,4 +1,4 @@
-import '../../domain/domain.dart';
+import '../../../domain/domain.dart';
 
 extension SysDto on SysEntity {
   static SysEntity fromMap(Map<String, dynamic> data) {
