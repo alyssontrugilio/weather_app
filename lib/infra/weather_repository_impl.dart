@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'package:fpdart/fpdart.dart';
-import 'package:weather_app/core/core.dart';
 
+import '../core/core.dart';
 import '../domain/domain.dart';
 import 'dtos/dtos.dart';
 
