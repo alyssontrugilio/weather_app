@@ -9,7 +9,7 @@ class RequestCityUseCaseImpl implements RequestCityUseCase {
     required this.repository,
   });
   @override
-  Future<Either<Failure, CityEntity>> requestCity({
+  Future<Either<Failure, CityEntity>> call({
     required String cityName,
   }) {
     return repository.requestCity(
