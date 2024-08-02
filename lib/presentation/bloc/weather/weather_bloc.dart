@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fpdart/fpdart.dart';
 
-import '../../domain/domain.dart';
+import '../../../domain/domain.dart';
 
 part 'weather_event.dart';
 part 'weather_state.dart';
@@ -18,7 +18,10 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     on<WeatherEvent>(_onWeatherEvent);
   }
 
-  Future<void> _onWeatherEvent(WeatherEvent event, Emitter<WeatherState> emit) {
+  Future<void> _onWeatherEvent(
+    WeatherEvent event,
+    Emitter<WeatherState> emit,
+  ) {
     return event.map(
       submitted: (_) async {
         emit(
