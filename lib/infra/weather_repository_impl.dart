@@ -6,12 +6,10 @@ import '../domain/domain.dart';
 import 'dtos/dtos.dart';
 
 class WeatherRepositoryImpl implements WeatherRepository {
-  final HttpAdapter httpAdapter;
   final http.Client client;
 
   WeatherRepositoryImpl({
     required this.client,
-    required this.httpAdapter,
   });
 
   @override
