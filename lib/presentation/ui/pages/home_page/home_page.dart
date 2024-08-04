@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:weather_app/core/core.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,7 +15,7 @@ class HomePage extends StatelessWidget {
             icon: const Icon(Icons.dataset_outlined),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () => context.go(AppRoute.settingsPage),
             icon: const Icon(Icons.settings),
           ),
         ],
