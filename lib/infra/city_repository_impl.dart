@@ -11,7 +11,7 @@ class CityRepositoryImpl implements CityRepository {
     required this.client,
   });
   @override
-  Future<Either<Failure, CityEntity>> requestCity({
+  Future<Either<Failure, List<CityEntity>>> requestCity({
     required String cityName,
   }) async {
     try {
@@ -21,7 +21,9 @@ class CityRepositoryImpl implements CityRepository {
         Uri.parse(url),
       );
 
-      return right(CityDto.fromJson(response.body));
+      return right(
+        CityDto.fromJson(response.body),
+      );
     } catch (e) {
       return left(
         Failure(

@@ -312,9 +312,9 @@ abstract class _CityChanged implements CityFormEvent {
 /// @nodoc
 mixin _$CityFormState {
   bool get isLoadgin => throw _privateConstructorUsedError;
-  CityEntity get city => throw _privateConstructorUsedError;
+  List<CityEntity> get city => throw _privateConstructorUsedError;
   String get cityName => throw _privateConstructorUsedError;
-  Option<Either<Failure, CityEntity>> get failuireOrData =>
+  Option<Either<Failure, List<CityEntity>>> get failuireOrData =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -330,11 +330,9 @@ abstract class $CityFormStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoadgin,
-      CityEntity city,
+      List<CityEntity> city,
       String cityName,
-      Option<Either<Failure, CityEntity>> failuireOrData});
-
-  $CityEntityCopyWith<$Res> get city;
+      Option<Either<Failure, List<CityEntity>>> failuireOrData});
 }
 
 /// @nodoc
@@ -363,7 +361,7 @@ class _$CityFormStateCopyWithImpl<$Res, $Val extends CityFormState>
       city: null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as CityEntity,
+              as List<CityEntity>,
       cityName: null == cityName
           ? _value.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
@@ -371,16 +369,8 @@ class _$CityFormStateCopyWithImpl<$Res, $Val extends CityFormState>
       failuireOrData: null == failuireOrData
           ? _value.failuireOrData
           : failuireOrData // ignore: cast_nullable_to_non_nullable
-              as Option<Either<Failure, CityEntity>>,
+              as Option<Either<Failure, List<CityEntity>>>,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CityEntityCopyWith<$Res> get city {
-    return $CityEntityCopyWith<$Res>(_value.city, (value) {
-      return _then(_value.copyWith(city: value) as $Val);
-    });
   }
 }
 
@@ -394,12 +384,9 @@ abstract class _$$CityFormStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLoadgin,
-      CityEntity city,
+      List<CityEntity> city,
       String cityName,
-      Option<Either<Failure, CityEntity>> failuireOrData});
-
-  @override
-  $CityEntityCopyWith<$Res> get city;
+      Option<Either<Failure, List<CityEntity>>> failuireOrData});
 }
 
 /// @nodoc
@@ -424,9 +411,9 @@ class __$$CityFormStateImplCopyWithImpl<$Res>
           : isLoadgin // ignore: cast_nullable_to_non_nullable
               as bool,
       city: null == city
-          ? _value.city
+          ? _value._city
           : city // ignore: cast_nullable_to_non_nullable
-              as CityEntity,
+              as List<CityEntity>,
       cityName: null == cityName
           ? _value.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
@@ -434,7 +421,7 @@ class __$$CityFormStateImplCopyWithImpl<$Res>
       failuireOrData: null == failuireOrData
           ? _value.failuireOrData
           : failuireOrData // ignore: cast_nullable_to_non_nullable
-              as Option<Either<Failure, CityEntity>>,
+              as Option<Either<Failure, List<CityEntity>>>,
     ));
   }
 }
@@ -444,18 +431,25 @@ class __$$CityFormStateImplCopyWithImpl<$Res>
 class _$CityFormStateImpl implements _CityFormState {
   const _$CityFormStateImpl(
       {required this.isLoadgin,
-      required this.city,
+      required final List<CityEntity> city,
       required this.cityName,
-      required this.failuireOrData});
+      required this.failuireOrData})
+      : _city = city;
 
   @override
   final bool isLoadgin;
+  final List<CityEntity> _city;
   @override
-  final CityEntity city;
+  List<CityEntity> get city {
+    if (_city is EqualUnmodifiableListView) return _city;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_city);
+  }
+
   @override
   final String cityName;
   @override
-  final Option<Either<Failure, CityEntity>> failuireOrData;
+  final Option<Either<Failure, List<CityEntity>>> failuireOrData;
 
   @override
   String toString() {
@@ -469,7 +463,7 @@ class _$CityFormStateImpl implements _CityFormState {
             other is _$CityFormStateImpl &&
             (identical(other.isLoadgin, isLoadgin) ||
                 other.isLoadgin == isLoadgin) &&
-            (identical(other.city, city) || other.city == city) &&
+            const DeepCollectionEquality().equals(other._city, _city) &&
             (identical(other.cityName, cityName) ||
                 other.cityName == cityName) &&
             (identical(other.failuireOrData, failuireOrData) ||
@@ -477,8 +471,8 @@ class _$CityFormStateImpl implements _CityFormState {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isLoadgin, city, cityName, failuireOrData);
+  int get hashCode => Object.hash(runtimeType, isLoadgin,
+      const DeepCollectionEquality().hash(_city), cityName, failuireOrData);
 
   @JsonKey(ignore: true)
   @override
@@ -489,20 +483,20 @@ class _$CityFormStateImpl implements _CityFormState {
 
 abstract class _CityFormState implements CityFormState {
   const factory _CityFormState(
-          {required final bool isLoadgin,
-          required final CityEntity city,
-          required final String cityName,
-          required final Option<Either<Failure, CityEntity>> failuireOrData}) =
-      _$CityFormStateImpl;
+      {required final bool isLoadgin,
+      required final List<CityEntity> city,
+      required final String cityName,
+      required final Option<Either<Failure, List<CityEntity>>>
+          failuireOrData}) = _$CityFormStateImpl;
 
   @override
   bool get isLoadgin;
   @override
-  CityEntity get city;
+  List<CityEntity> get city;
   @override
   String get cityName;
   @override
-  Option<Either<Failure, CityEntity>> get failuireOrData;
+  Option<Either<Failure, List<CityEntity>>> get failuireOrData;
   @override
   @JsonKey(ignore: true)
   _$$CityFormStateImplCopyWith<_$CityFormStateImpl> get copyWith =>

@@ -1,21 +1,21 @@
 import 'dart:convert';
 
-import 'package:weather_app/domain/domain.dart';
+import '../../domain/domain.dart';
 
 extension CityDto on CityEntity {
-  static CityEntity fromMap(Map<String, dynamic> data) {
-    return CityEntity(
-      name: data['name'],
-      lat: data['lat'],
-      lon: data['lon'],
-      country: data['country'],
-      state: data['state'],
-    );
-  }
+  static List<CityEntity> fromJson(dynamic json) {
+    final listMap = jsonDecode(json) as List;
 
-  static CityEntity fromJson(String json) {
-    return fromMap(
-      jsonDecode(json),
-    );
+    return listMap
+        .map(
+          (city) => CityEntity(
+            name: city['name'],
+            lat: city['lat'],
+            lon: city['lon'],
+            country: city['country'],
+            state: city['state'],
+          ),
+        )
+        .toList();
   }
 }

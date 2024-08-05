@@ -4,15 +4,15 @@ part of 'city_form_bloc.dart';
 class CityFormState with _$CityFormState {
   const factory CityFormState({
     required bool isLoadgin,
-    required CityEntity city,
+    required List<CityEntity> city,
     required String cityName,
-    required Option<Either<Failure, CityEntity>> failuireOrData,
+    required Option<Either<Failure, List<CityEntity>>> failuireOrData,
   }) = _CityFormState;
 
   factory CityFormState.initial() {
     return CityFormState(
       isLoadgin: false,
-      city: CityEntity.empty(),
+      city: List<CityEntity>.empty(),
       failuireOrData: none(),
       cityName: '',
     );
