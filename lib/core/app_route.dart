@@ -7,6 +7,7 @@ class AppRoute {
   static const String splashPage = '/splash';
   static const String homePage = '/home_page';
   static const String settingsPage = '/settings_page';
+  static const String detailsPage = '/details_page';
 }
 
 final GoRouter router = GoRouter(
@@ -23,6 +24,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppRoute.settingsPage,
       builder: (context, state) => const SettingsPage(),
+    ),
+    GoRoute(
+      path: AppRoute.detailsPage,
+      builder: (context, state) => const DetailsPage(),
     )
   ],
 );
