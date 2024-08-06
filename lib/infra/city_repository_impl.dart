@@ -21,14 +21,10 @@ class CityRepositoryImpl implements CityRepository {
         Uri.parse(url),
       );
 
-      return right(
-        CityDto.fromJson(response.body),
-      );
+      return right(CityDto.fromJson(response.body));
     } catch (e) {
       return left(
-        Failure(
-          message: e.toString(),
-        ),
+        Failure(message: e.toString()),
       );
     }
   }

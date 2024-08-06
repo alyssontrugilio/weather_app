@@ -7,36 +7,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void searchCityModal() async {
-      return showModalBottomSheet(
-        context: context,
-        builder: (context) {
-          return SizedBox(
-            height: 200,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Digite o nome da cidade',
-                    ),
-                  ),
-                  const SizedBox(height: 40),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Buscar'),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-      );
-    }
-
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -50,7 +20,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
         title: GestureDetector(
-          onTap: searchCityModal,
+          onTap: () => context.go(AppRoute.searchCityPage),
           child: const Column(
             children: [
               Text(

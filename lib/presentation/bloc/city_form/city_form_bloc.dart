@@ -32,13 +32,21 @@ class CityFormBloc extends Bloc<CityFormEvent, CityFormState> {
             failuireOrData: none(),
           ),
         );
+
         final failureOrData = await _resquestCity.call(
           cityName: state.cityName,
         );
+        final newState = state.copyWith(
+          isLoadgin: false,
+          cityName: state.cityName,
+          city: failureOrData.fold(
+            (l) => [],
+            (cities) => cities,
+          ),
+        );
         emit(
-          state.copyWith(
-            isLoadgin: false,
-            failuireOrData: optionOf(failureOrData),
+          newState.copyWith(
+            failuireOrData: some(failureOrData),
           ),
         );
       },
