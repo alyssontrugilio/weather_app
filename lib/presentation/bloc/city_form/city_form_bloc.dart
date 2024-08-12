@@ -26,9 +26,10 @@ class CityFormBloc extends Bloc<CityFormEvent, CityFormState> {
   ) {
     return event.map(
       submitted: (_) async {
+        if (state.cityName.isEmpty) return;
         emit(
           state.copyWith(
-            isLoadgin: true,
+            isLoading: true,
             failuireOrData: none(),
           ),
         );
@@ -37,7 +38,7 @@ class CityFormBloc extends Bloc<CityFormEvent, CityFormState> {
           cityName: state.cityName,
         );
         final newState = state.copyWith(
-          isLoadgin: false,
+          isLoading: false,
           cityName: state.cityName,
           city: failureOrData.fold(
             (l) => [],

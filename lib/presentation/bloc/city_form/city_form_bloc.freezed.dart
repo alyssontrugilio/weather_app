@@ -311,7 +311,7 @@ abstract class _CityChanged implements CityFormEvent {
 
 /// @nodoc
 mixin _$CityFormState {
-  bool get isLoadgin => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
   List<CityEntity> get city => throw _privateConstructorUsedError;
   String get cityName => throw _privateConstructorUsedError;
   Option<Either<Failure, List<CityEntity>>> get failuireOrData =>
@@ -329,7 +329,7 @@ abstract class $CityFormStateCopyWith<$Res> {
       _$CityFormStateCopyWithImpl<$Res, CityFormState>;
   @useResult
   $Res call(
-      {bool isLoadgin,
+      {bool isLoading,
       List<CityEntity> city,
       String cityName,
       Option<Either<Failure, List<CityEntity>>> failuireOrData});
@@ -348,15 +348,15 @@ class _$CityFormStateCopyWithImpl<$Res, $Val extends CityFormState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoadgin = null,
+    Object? isLoading = null,
     Object? city = null,
     Object? cityName = null,
     Object? failuireOrData = null,
   }) {
     return _then(_value.copyWith(
-      isLoadgin: null == isLoadgin
-          ? _value.isLoadgin
-          : isLoadgin // ignore: cast_nullable_to_non_nullable
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
       city: null == city
           ? _value.city
@@ -383,7 +383,7 @@ abstract class _$$CityFormStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool isLoadgin,
+      {bool isLoading,
       List<CityEntity> city,
       String cityName,
       Option<Either<Failure, List<CityEntity>>> failuireOrData});
@@ -400,15 +400,15 @@ class __$$CityFormStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoadgin = null,
+    Object? isLoading = null,
     Object? city = null,
     Object? cityName = null,
     Object? failuireOrData = null,
   }) {
     return _then(_$CityFormStateImpl(
-      isLoadgin: null == isLoadgin
-          ? _value.isLoadgin
-          : isLoadgin // ignore: cast_nullable_to_non_nullable
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
       city: null == city
           ? _value._city
@@ -430,14 +430,14 @@ class __$$CityFormStateImplCopyWithImpl<$Res>
 
 class _$CityFormStateImpl implements _CityFormState {
   const _$CityFormStateImpl(
-      {required this.isLoadgin,
+      {required this.isLoading,
       required final List<CityEntity> city,
       required this.cityName,
       required this.failuireOrData})
       : _city = city;
 
   @override
-  final bool isLoadgin;
+  final bool isLoading;
   final List<CityEntity> _city;
   @override
   List<CityEntity> get city {
@@ -453,7 +453,7 @@ class _$CityFormStateImpl implements _CityFormState {
 
   @override
   String toString() {
-    return 'CityFormState(isLoadgin: $isLoadgin, city: $city, cityName: $cityName, failuireOrData: $failuireOrData)';
+    return 'CityFormState(isLoading: $isLoading, city: $city, cityName: $cityName, failuireOrData: $failuireOrData)';
   }
 
   @override
@@ -461,8 +461,8 @@ class _$CityFormStateImpl implements _CityFormState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CityFormStateImpl &&
-            (identical(other.isLoadgin, isLoadgin) ||
-                other.isLoadgin == isLoadgin) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
             const DeepCollectionEquality().equals(other._city, _city) &&
             (identical(other.cityName, cityName) ||
                 other.cityName == cityName) &&
@@ -471,7 +471,7 @@ class _$CityFormStateImpl implements _CityFormState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoadgin,
+  int get hashCode => Object.hash(runtimeType, isLoading,
       const DeepCollectionEquality().hash(_city), cityName, failuireOrData);
 
   @JsonKey(ignore: true)
@@ -483,14 +483,14 @@ class _$CityFormStateImpl implements _CityFormState {
 
 abstract class _CityFormState implements CityFormState {
   const factory _CityFormState(
-      {required final bool isLoadgin,
+      {required final bool isLoading,
       required final List<CityEntity> city,
       required final String cityName,
       required final Option<Either<Failure, List<CityEntity>>>
           failuireOrData}) = _$CityFormStateImpl;
 
   @override
-  bool get isLoadgin;
+  bool get isLoading;
   @override
   List<CityEntity> get city;
   @override

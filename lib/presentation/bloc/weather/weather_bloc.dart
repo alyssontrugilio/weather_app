@@ -36,9 +36,16 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
           lon: state.lon,
         );
 
+        final newState = state.copyWith(
+          isLoading: false,
+          weather: failureOrSuccess.fold(
+            (_) => WeatherGeneralEntity.empty(),
+            (weather) => weather,
+          ),
+        );
+
         emit(
-          state.copyWith(
-            isLoading: false,
+          newState.copyWith(
             failureOrSuccess: optionOf(failureOrSuccess),
           ),
         );
