@@ -63,16 +63,18 @@ class _SearchCityPageState extends State<SearchCityPage> {
               child: Center(
                 child: Column(
                   children: [
-                    ListView.separated(
-                      itemBuilder: (context, index) => ListTile(
-                        onTap: () => context.go(AppRoute.homePage),
-                        title: Text(state.city[index].name),
-                        subtitle: Text(
-                          '${state.city[index].state}, ${state.city[index].country}',
+                    Expanded(
+                      child: ListView.separated(
+                        itemBuilder: (context, index) => ListTile(
+                          onTap: () => context.go(AppRoute.homePage),
+                          title: Text(state.city[index].name),
+                          subtitle: Text(
+                            '${state.city[index].state}, ${state.city[index].country}',
+                          ),
                         ),
+                        separatorBuilder: (context, index) => const Divider(),
+                        itemCount: state.city.length,
                       ),
-                      separatorBuilder: (context, index) => const Divider(),
-                      itemCount: state.city.length,
                     ),
                   ],
                 ),
