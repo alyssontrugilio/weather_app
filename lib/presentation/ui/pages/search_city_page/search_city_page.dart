@@ -56,7 +56,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
           ],
         ),
         body: BlocBuilder<CityFormBloc, CityFormState>(
-          buildWhen: (p, c) => p.isLoadgin != c.isLoadgin,
+          buildWhen: (p, c) => p.isLoading != c.isLoading,
           builder: (context, state) {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
