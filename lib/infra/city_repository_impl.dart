@@ -16,7 +16,7 @@ class CityRepositoryImpl implements CityRepository {
   }) async {
     try {
       final url =
-          '${EnviorementMapper.apiUrlCity}q=$cityName&limit=5&lang=pt_br&APPID=${EnviorementMapper.apiKey}';
+          '${EnviorementMapper.apiUrlCity}q=$cityName&limit=10&lang=pt_br&APPID=${EnviorementMapper.apiKey}';
       final response = await client.get(
         Uri.parse(url),
       );
