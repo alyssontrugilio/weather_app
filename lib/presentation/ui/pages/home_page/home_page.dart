@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weather_app/core/core.dart';
-import 'package:weather_app/domain/domain.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
