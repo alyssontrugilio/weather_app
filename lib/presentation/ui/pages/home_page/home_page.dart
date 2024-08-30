@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:weather_app/core/core.dart';
+import 'package:weather_app/domain/domain.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +27,14 @@ class HomePage extends StatelessWidget {
           child: const Column(
             children: [
               Text(
-                'Nome da cidade',
+                'Nome',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                 ),
               ),
               Text(
-                'Localizacao atual',
+                'Nome',
                 style: TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.w400,
