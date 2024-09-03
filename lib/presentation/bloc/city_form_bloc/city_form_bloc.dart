@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fpdart/fpdart.dart';
@@ -31,14 +32,12 @@ class CityFormBloc extends Bloc<CityFormEvent, CityFormState> {
         failureOrData = await _requestCity.call(
           cityName: state.cityName,
         );
-
+        log('Cidade pesquisada: ${state.cityName}');
         failureOrData.fold(
           (failure) => Failure(message: failure.message),
-          (cities) => cities
-              .map(
-                (city) => state.copyWith(city: city),
-              )
-              .toList(),
+          (cities) => state.copyWith(
+            city: cities,
+          ),
         );
 
         emit(

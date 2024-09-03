@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:weather_app/core/core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../main/main.dart';
+import '../../../bloc/bloc.dart';
 
 class SearchCityPage extends StatefulWidget {
   const SearchCityPage({super.key});
@@ -10,51 +12,66 @@ class SearchCityPage extends StatefulWidget {
 }
 
 class _SearchCityPageState extends State<SearchCityPage> {
+  late final CityFormBloc cityFormBloc;
+
+  @override
+  void initState() {
+    cityFormBloc = cityFormBlocFactory();
+    cityFormBloc.add(const CityFormEvent.initialized());
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    cityFormBloc.close();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => context.go(AppRoute.detailsPage),
-          icon: const Icon(
-            Icons.arrow_back,
-          ),
-        ),
-        title: Container(
-          constraints: const BoxConstraints(maxWidth: 200),
-          child: TextFormField(onChanged: (value) {}),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.search),
-          ),
-          const SizedBox(width: 20)
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Center(
-          child: Column(
-            children: [
-              Expanded(
-                child: ListView.separated(
-                  itemBuilder: (context, index) => ListTile(
-                    onTap: () {
-                      context.go(
-                        AppRoute.homePage,
+    return BlocProvider.value(
+      value: cityFormBloc,
+      child: BlocBuilder<CityFormBloc, CityFormState>(
+        buildWhen: (_, c) => c.failureOrData.isSome(),
+        builder: (context, state) {
+          return Scaffold(
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextFormField(
+                    decoration: const InputDecoration(),
+                    onChanged: (value) {
+                      cityFormBloc.add(
+                        CityFormEvent.cityNameChanged(value: value),
                       );
                     },
-                    title: const Text('Nome da cidade'),
-                    subtitle: const Text('Estado, Pais'),
                   ),
-                  separatorBuilder: (context, index) => const Divider(),
-                  itemCount: 5,
-                ),
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                    onPressed: () {
+                      cityFormBloc.add(const CityFormEvent.submitted());
+                    },
+                    child: const Text('Pesquisar'),
+                  ),
+                  Expanded(
+                    child: ListView.separated(
+                      itemBuilder: (context, index) {
+                        final city = state.city[index];
+                        return ListTile(
+                          title: Text(city.name),
+                          subtitle: Text('${city.state}, ${city.country}'),
+                        );
+                      },
+                      separatorBuilder: (context, index) => const Divider(),
+                      itemCount: state.city.length,
+                    ),
+                  )
+                ],
               ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }

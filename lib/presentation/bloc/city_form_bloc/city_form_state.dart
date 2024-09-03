@@ -4,7 +4,7 @@ part of 'city_form_bloc.dart';
 class CityFormState with _$CityFormState {
   const factory CityFormState({
     required bool isLoading,
-    required CityEntity city,
+    required List<CityEntity> city,
     required String cityName,
     required Option<Either<Failure, List<CityEntity>>> failureOrData,
   }) = _CityFormState;
@@ -12,7 +12,7 @@ class CityFormState with _$CityFormState {
   factory CityFormState.initial() {
     return CityFormState(
       isLoading: false,
-      city: CityEntity.empty(),
+      city: List<CityEntity>.empty(),
       cityName: '',
       failureOrData: none(),
     );
