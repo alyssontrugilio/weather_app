@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
         title: GestureDetector(
-          onTap: () => context.go(AppRoute.searchCityPage),
+          onTap: () => context.go(AppRoute.selectCityPage),
           child: const Column(
             children: [
               Text(

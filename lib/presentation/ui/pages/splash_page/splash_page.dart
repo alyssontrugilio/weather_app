@@ -14,7 +14,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     Future.delayed(
       const Duration(seconds: 3),
-      () => context.go(AppRoute.searchCityPage),
+      () => context.go(AppRoute.homePage),
     );
     super.initState();
   }
