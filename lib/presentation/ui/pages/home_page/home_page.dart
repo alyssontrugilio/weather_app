@@ -27,9 +27,11 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     weatherFormBloc = weatherFormBlocFactory();
 
-    weatherFormBloc.add(
-      WeatherFormEvent.searchWeather(lat: widget.lat, lon: widget.lon),
-    );
+    if (widget.lat.isNotEmpty && widget.lon.isNotEmpty) {
+      weatherFormBloc.add(
+        WeatherFormEvent.searchWeather(lat: widget.lat, lon: widget.lon),
+      );
+    }
 
     super.initState();
   }
