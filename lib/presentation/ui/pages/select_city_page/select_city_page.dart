@@ -106,7 +106,11 @@ class SearchCityDelegate extends SearchDelegate<CityEntity> {
       builder: (context, state) {
         return ListView.builder(
           itemBuilder: (context, index) => ListTile(
-            onTap: () => context.go(AppRoute.homePage),
+            onTap: () {
+              final String lon = state.city[index].lon.toString();
+              final String lat = state.city[index].lat.toString();
+              context.go('${AppRoute.homePage}/$lat/$lon');
+            },
             title: Text(state.city[index].name),
             subtitle: Text(
               '${state.city[index].state}, ${state.city[index].country}',

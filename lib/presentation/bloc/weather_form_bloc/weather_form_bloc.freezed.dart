@@ -19,25 +19,19 @@ mixin _$WeatherFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
-    required TResult Function() searchWeather,
-    required TResult Function(String value) latChanged,
-    required TResult Function(String value) lonChanged,
+    required TResult Function(String lat, String lon) searchWeather,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialized,
-    TResult? Function()? searchWeather,
-    TResult? Function(String value)? latChanged,
-    TResult? Function(String value)? lonChanged,
+    TResult? Function(String lat, String lon)? searchWeather,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
-    TResult Function()? searchWeather,
-    TResult Function(String value)? latChanged,
-    TResult Function(String value)? lonChanged,
+    TResult Function(String lat, String lon)? searchWeather,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -45,24 +39,18 @@ mixin _$WeatherFormEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_SearchWeather value) searchWeather,
-    required TResult Function(_LatChanged value) latChanged,
-    required TResult Function(_LonChanged value) lonChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_SearchWeather value)? searchWeather,
-    TResult? Function(_LatChanged value)? latChanged,
-    TResult? Function(_LonChanged value)? lonChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
     TResult Function(_SearchWeather value)? searchWeather,
-    TResult Function(_LatChanged value)? latChanged,
-    TResult Function(_LonChanged value)? lonChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -125,9 +113,7 @@ class _$InitializedImpl implements _Initialized {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
-    required TResult Function() searchWeather,
-    required TResult Function(String value) latChanged,
-    required TResult Function(String value) lonChanged,
+    required TResult Function(String lat, String lon) searchWeather,
   }) {
     return initialized();
   }
@@ -136,9 +122,7 @@ class _$InitializedImpl implements _Initialized {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialized,
-    TResult? Function()? searchWeather,
-    TResult? Function(String value)? latChanged,
-    TResult? Function(String value)? lonChanged,
+    TResult? Function(String lat, String lon)? searchWeather,
   }) {
     return initialized?.call();
   }
@@ -147,9 +131,7 @@ class _$InitializedImpl implements _Initialized {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
-    TResult Function()? searchWeather,
-    TResult Function(String value)? latChanged,
-    TResult Function(String value)? lonChanged,
+    TResult Function(String lat, String lon)? searchWeather,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -163,8 +145,6 @@ class _$InitializedImpl implements _Initialized {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_SearchWeather value) searchWeather,
-    required TResult Function(_LatChanged value) latChanged,
-    required TResult Function(_LonChanged value) lonChanged,
   }) {
     return initialized(this);
   }
@@ -174,8 +154,6 @@ class _$InitializedImpl implements _Initialized {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_SearchWeather value)? searchWeather,
-    TResult? Function(_LatChanged value)? latChanged,
-    TResult? Function(_LonChanged value)? lonChanged,
   }) {
     return initialized?.call(this);
   }
@@ -185,8 +163,6 @@ class _$InitializedImpl implements _Initialized {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
     TResult Function(_SearchWeather value)? searchWeather,
-    TResult Function(_LatChanged value)? latChanged,
-    TResult Function(_LonChanged value)? lonChanged,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -205,6 +181,8 @@ abstract class _$$SearchWeatherImplCopyWith<$Res> {
   factory _$$SearchWeatherImplCopyWith(
           _$SearchWeatherImpl value, $Res Function(_$SearchWeatherImpl) then) =
       __$$SearchWeatherImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String lat, String lon});
 }
 
 /// @nodoc
@@ -214,60 +192,86 @@ class __$$SearchWeatherImplCopyWithImpl<$Res>
   __$$SearchWeatherImplCopyWithImpl(
       _$SearchWeatherImpl _value, $Res Function(_$SearchWeatherImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? lat = null,
+    Object? lon = null,
+  }) {
+    return _then(_$SearchWeatherImpl(
+      lat: null == lat
+          ? _value.lat
+          : lat // ignore: cast_nullable_to_non_nullable
+              as String,
+      lon: null == lon
+          ? _value.lon
+          : lon // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$SearchWeatherImpl implements _SearchWeather {
-  const _$SearchWeatherImpl();
+  const _$SearchWeatherImpl({required this.lat, required this.lon});
+
+  @override
+  final String lat;
+  @override
+  final String lon;
 
   @override
   String toString() {
-    return 'WeatherFormEvent.searchWeather()';
+    return 'WeatherFormEvent.searchWeather(lat: $lat, lon: $lon)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SearchWeatherImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SearchWeatherImpl &&
+            (identical(other.lat, lat) || other.lat == lat) &&
+            (identical(other.lon, lon) || other.lon == lon));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, lat, lon);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchWeatherImplCopyWith<_$SearchWeatherImpl> get copyWith =>
+      __$$SearchWeatherImplCopyWithImpl<_$SearchWeatherImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
-    required TResult Function() searchWeather,
-    required TResult Function(String value) latChanged,
-    required TResult Function(String value) lonChanged,
+    required TResult Function(String lat, String lon) searchWeather,
   }) {
-    return searchWeather();
+    return searchWeather(lat, lon);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialized,
-    TResult? Function()? searchWeather,
-    TResult? Function(String value)? latChanged,
-    TResult? Function(String value)? lonChanged,
+    TResult? Function(String lat, String lon)? searchWeather,
   }) {
-    return searchWeather?.call();
+    return searchWeather?.call(lat, lon);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
-    TResult Function()? searchWeather,
-    TResult Function(String value)? latChanged,
-    TResult Function(String value)? lonChanged,
+    TResult Function(String lat, String lon)? searchWeather,
     required TResult orElse(),
   }) {
     if (searchWeather != null) {
-      return searchWeather();
+      return searchWeather(lat, lon);
     }
     return orElse();
   }
@@ -277,8 +281,6 @@ class _$SearchWeatherImpl implements _SearchWeather {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_SearchWeather value) searchWeather,
-    required TResult Function(_LatChanged value) latChanged,
-    required TResult Function(_LonChanged value) lonChanged,
   }) {
     return searchWeather(this);
   }
@@ -288,8 +290,6 @@ class _$SearchWeatherImpl implements _SearchWeather {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialized value)? initialized,
     TResult? Function(_SearchWeather value)? searchWeather,
-    TResult? Function(_LatChanged value)? latChanged,
-    TResult? Function(_LonChanged value)? lonChanged,
   }) {
     return searchWeather?.call(this);
   }
@@ -299,8 +299,6 @@ class _$SearchWeatherImpl implements _SearchWeather {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialized value)? initialized,
     TResult Function(_SearchWeather value)? searchWeather,
-    TResult Function(_LatChanged value)? latChanged,
-    TResult Function(_LonChanged value)? lonChanged,
     required TResult orElse(),
   }) {
     if (searchWeather != null) {
@@ -311,296 +309,14 @@ class _$SearchWeatherImpl implements _SearchWeather {
 }
 
 abstract class _SearchWeather implements WeatherFormEvent {
-  const factory _SearchWeather() = _$SearchWeatherImpl;
-}
+  const factory _SearchWeather(
+      {required final String lat,
+      required final String lon}) = _$SearchWeatherImpl;
 
-/// @nodoc
-abstract class _$$LatChangedImplCopyWith<$Res> {
-  factory _$$LatChangedImplCopyWith(
-          _$LatChangedImpl value, $Res Function(_$LatChangedImpl) then) =
-      __$$LatChangedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String value});
-}
-
-/// @nodoc
-class __$$LatChangedImplCopyWithImpl<$Res>
-    extends _$WeatherFormEventCopyWithImpl<$Res, _$LatChangedImpl>
-    implements _$$LatChangedImplCopyWith<$Res> {
-  __$$LatChangedImplCopyWithImpl(
-      _$LatChangedImpl _value, $Res Function(_$LatChangedImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$LatChangedImpl(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$LatChangedImpl implements _LatChanged {
-  _$LatChangedImpl({required this.value});
-
-  @override
-  final String value;
-
-  @override
-  String toString() {
-    return 'WeatherFormEvent.latChanged(value: $value)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LatChangedImpl &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
-
+  String get lat;
+  String get lon;
   @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LatChangedImplCopyWith<_$LatChangedImpl> get copyWith =>
-      __$$LatChangedImplCopyWithImpl<_$LatChangedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initialized,
-    required TResult Function() searchWeather,
-    required TResult Function(String value) latChanged,
-    required TResult Function(String value) lonChanged,
-  }) {
-    return latChanged(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initialized,
-    TResult? Function()? searchWeather,
-    TResult? Function(String value)? latChanged,
-    TResult? Function(String value)? lonChanged,
-  }) {
-    return latChanged?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialized,
-    TResult Function()? searchWeather,
-    TResult Function(String value)? latChanged,
-    TResult Function(String value)? lonChanged,
-    required TResult orElse(),
-  }) {
-    if (latChanged != null) {
-      return latChanged(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initialized value) initialized,
-    required TResult Function(_SearchWeather value) searchWeather,
-    required TResult Function(_LatChanged value) latChanged,
-    required TResult Function(_LonChanged value) lonChanged,
-  }) {
-    return latChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_SearchWeather value)? searchWeather,
-    TResult? Function(_LatChanged value)? latChanged,
-    TResult? Function(_LonChanged value)? lonChanged,
-  }) {
-    return latChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialized value)? initialized,
-    TResult Function(_SearchWeather value)? searchWeather,
-    TResult Function(_LatChanged value)? latChanged,
-    TResult Function(_LonChanged value)? lonChanged,
-    required TResult orElse(),
-  }) {
-    if (latChanged != null) {
-      return latChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LatChanged implements WeatherFormEvent {
-  factory _LatChanged({required final String value}) = _$LatChangedImpl;
-
-  String get value;
-  @JsonKey(ignore: true)
-  _$$LatChangedImplCopyWith<_$LatChangedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$LonChangedImplCopyWith<$Res> {
-  factory _$$LonChangedImplCopyWith(
-          _$LonChangedImpl value, $Res Function(_$LonChangedImpl) then) =
-      __$$LonChangedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String value});
-}
-
-/// @nodoc
-class __$$LonChangedImplCopyWithImpl<$Res>
-    extends _$WeatherFormEventCopyWithImpl<$Res, _$LonChangedImpl>
-    implements _$$LonChangedImplCopyWith<$Res> {
-  __$$LonChangedImplCopyWithImpl(
-      _$LonChangedImpl _value, $Res Function(_$LonChangedImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-  }) {
-    return _then(_$LonChangedImpl(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$LonChangedImpl implements _LonChanged {
-  _$LonChangedImpl({required this.value});
-
-  @override
-  final String value;
-
-  @override
-  String toString() {
-    return 'WeatherFormEvent.lonChanged(value: $value)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LonChangedImpl &&
-            (identical(other.value, value) || other.value == value));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, value);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LonChangedImplCopyWith<_$LonChangedImpl> get copyWith =>
-      __$$LonChangedImplCopyWithImpl<_$LonChangedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initialized,
-    required TResult Function() searchWeather,
-    required TResult Function(String value) latChanged,
-    required TResult Function(String value) lonChanged,
-  }) {
-    return lonChanged(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initialized,
-    TResult? Function()? searchWeather,
-    TResult? Function(String value)? latChanged,
-    TResult? Function(String value)? lonChanged,
-  }) {
-    return lonChanged?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialized,
-    TResult Function()? searchWeather,
-    TResult Function(String value)? latChanged,
-    TResult Function(String value)? lonChanged,
-    required TResult orElse(),
-  }) {
-    if (lonChanged != null) {
-      return lonChanged(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initialized value) initialized,
-    required TResult Function(_SearchWeather value) searchWeather,
-    required TResult Function(_LatChanged value) latChanged,
-    required TResult Function(_LonChanged value) lonChanged,
-  }) {
-    return lonChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initialized value)? initialized,
-    TResult? Function(_SearchWeather value)? searchWeather,
-    TResult? Function(_LatChanged value)? latChanged,
-    TResult? Function(_LonChanged value)? lonChanged,
-  }) {
-    return lonChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialized value)? initialized,
-    TResult Function(_SearchWeather value)? searchWeather,
-    TResult Function(_LatChanged value)? latChanged,
-    TResult Function(_LonChanged value)? lonChanged,
-    required TResult orElse(),
-  }) {
-    if (lonChanged != null) {
-      return lonChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LonChanged implements WeatherFormEvent {
-  factory _LonChanged({required final String value}) = _$LonChangedImpl;
-
-  String get value;
-  @JsonKey(ignore: true)
-  _$$LonChangedImplCopyWith<_$LonChangedImpl> get copyWith =>
+  _$$SearchWeatherImplCopyWith<_$SearchWeatherImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

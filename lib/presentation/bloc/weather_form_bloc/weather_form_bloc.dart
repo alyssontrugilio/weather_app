@@ -25,37 +25,26 @@ class WeatherFormBloc extends Bloc<WeatherFormEvent, WeatherFormState> {
       initialized: (_) async {
         emit(WeatherFormState.initial());
       },
-      searchWeather: (_) async {
-        Either<Failure, WeatherGeneralEntity> failureOrData;
+      searchWeather: (e) async {
+        Either<Failure, WeatherGeneralEntity> failureOrDate;
         emit(state.copyWith(isLoading: true, failureOrData: none()));
 
-        failureOrData = await _requestWeather.call(
-          lat: state.lat,
-          lon: state.lon,
+        failureOrDate = await _requestWeather.call(
+          lat: e.lat.toString(),
+          lon: e.lon.toString(),
         );
 
         final newState = state.copyWith(
-          weather: failureOrData.fold(
-            (_) => WeatherGeneralEntity.empty(),
+          weather: failureOrDate.fold(
+            (l) => WeatherGeneralEntity.empty(),
             (weather) => weather,
           ),
         );
-
         emit(
           newState.copyWith(
             isLoading: false,
-            failureOrData: optionOf(failureOrData),
+            failureOrData: optionOf(failureOrDate),
           ),
-        );
-      },
-      latChanged: (e) async {
-        emit(
-          state.copyWith(lat: e.value),
-        );
-      },
-      lonChanged: (e) async {
-        emit(
-          state.copyWith(lon: e.value),
         );
       },
     );

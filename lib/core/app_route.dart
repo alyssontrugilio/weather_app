@@ -20,7 +20,23 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: AppRoute.homePage,
-      builder: (context, state) => const HomePage(),
+      builder: (context, state) {
+        return const HomePage(
+          lat: '',
+          lon: '',
+        );
+      },
+    ),
+    GoRoute(
+      path: '${AppRoute.homePage}/:lat/:lon',
+      builder: (context, state) {
+        String lat = state.pathParameters['lat'].toString();
+        String lon = state.pathParameters['lon'].toString();
+        return HomePage(
+          lat: lat,
+          lon: lon,
+        );
+      },
     ),
     GoRoute(
       path: AppRoute.settingsPage,

@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import '../widgets.dart';
 
 class DialogMessage {
-  final String message;
-
-  DialogMessage({
-    required this.message,
-  });
-  Future<dynamic> errorMessage(BuildContext context) {
+  static Future<dynamic> errorMessage(
+    BuildContext context, {
+    required String message,
+  }) {
     return showModalBottomSheet(
       context: context,
       builder: (context) => DialogMessageWidget(
@@ -18,7 +16,10 @@ class DialogMessage {
     );
   }
 
-  Future<dynamic> successMessage(BuildContext context) {
+  static Future<dynamic> successMessage(
+    BuildContext context, {
+    required String message,
+  }) {
     return showModalBottomSheet(
       context: context,
       builder: (context) => DialogMessageWidget(
