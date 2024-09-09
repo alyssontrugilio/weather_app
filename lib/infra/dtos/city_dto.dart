@@ -18,4 +18,14 @@ extension CityDto on CityEntity {
         )
         .toList();
   }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'lat': lat,
+      'lon': lon,
+      'country': country,
+      'state': state,
+    };
+  }
 }

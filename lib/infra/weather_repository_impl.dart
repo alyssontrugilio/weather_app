@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:fpdart/fpdart.dart';
 
@@ -17,16 +19,15 @@ class WeatherRepositoryImpl implements WeatherRepository {
     required String lat,
     required String lon,
   }) async {
+    final url =
+        '${EnviorementMapper.apiUrlWeather}lat=$lat&lon=$lon&appid=${EnviorementMapper.apiKey}';
+    final response = await client.get(Uri.parse(url));
     try {
-      final url =
-          '${EnviorementMapper.apiUrlWeather}lat=$lat&lon=$lon&appid=${EnviorementMapper.apiKey}';
-      final response = await client.get(Uri.parse(url));
       return right(WeatherGeneralDto.fromJson(response.body));
-    } catch (e) {
+    } catch (_) {
+      final errorMap = jsonDecode(response.body);
       return left(
-        Failure(
-          message: e.toString(),
-        ),
+        FailureDto.fromMap(errorMap),
       );
     }
   }

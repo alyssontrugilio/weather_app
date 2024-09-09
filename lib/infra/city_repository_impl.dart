@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:fpdart/fpdart.dart';
 import 'package:http/http.dart' as http;
-import 'package:weather_app/core/core.dart';
-import 'package:weather_app/infra/dtos/dtos.dart';
+
+import '../core/core.dart';
 import '../domain/domain.dart';
+import 'dtos/dtos.dart';
 
 class CityRepositoryImpl implements CityRepository {
   final http.Client client;
@@ -14,17 +17,17 @@ class CityRepositoryImpl implements CityRepository {
   Future<Either<Failure, List<CityEntity>>> requestCity({
     required String cityName,
   }) async {
+    final url =
+        '${EnviorementMapper.apiUrlCity}q=$cityName&limit=10&lang=pt_br&APPID=${EnviorementMapper.apiKey}';
+    final response = await client.get(
+      Uri.parse(url),
+    );
     try {
-      final url =
-          '${EnviorementMapper.apiUrlCity}q=$cityName&limit=10&lang=pt_br&APPID=${EnviorementMapper.apiKey}';
-      final response = await client.get(
-        Uri.parse(url),
-      );
-
       return right(CityDto.fromJson(response.body));
-    } catch (e) {
+    } catch (_) {
+      final erroMap = jsonDecode(response.body);
       return left(
-        Failure(message: e.toString()),
+        FailureDto.fromMap(erroMap),
       );
     }
   }
