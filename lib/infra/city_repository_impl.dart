@@ -22,13 +22,15 @@ class CityRepositoryImpl implements CityRepository {
     final response = await client.get(
       Uri.parse(url),
     );
-    try {
-      return right(CityDto.fromJson(response.body));
-    } catch (_) {
+
+    if (response.body.contains('code')) {
       final erroMap = jsonDecode(response.body);
       return left(
         FailureDto.fromMap(erroMap),
       );
     }
+
+    final data = jsonDecode(response.body);
+    return right(CityDto.fromMap(data as List<dynamic>));
   }
 }

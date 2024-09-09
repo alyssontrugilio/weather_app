@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:http/http.dart' as http;
 import 'package:fpdart/fpdart.dart';
+import 'package:http/http.dart' as http;
 
 import '../core/core.dart';
 import '../domain/domain.dart';
@@ -22,13 +22,17 @@ class WeatherRepositoryImpl implements WeatherRepository {
     final url =
         '${EnviorementMapper.apiUrlWeather}lat=$lat&lon=$lon&appid=${EnviorementMapper.apiKey}';
     final response = await client.get(Uri.parse(url));
-    try {
-      return right(WeatherGeneralDto.fromJson(response.body));
-    } catch (_) {
+
+    if (response.body.contains('code')) {
       final errorMap = jsonDecode(response.body);
       return left(
         FailureDto.fromMap(errorMap),
       );
     }
+
+    final data = jsonDecode(response.body);
+    return right(
+      WeatherGeneralDto.fromMap(data),
+    );
   }
 }

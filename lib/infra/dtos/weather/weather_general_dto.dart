@@ -1,30 +1,24 @@
-import 'dart:convert';
-
 import '../../../domain/domain.dart';
 import 'weather.dart';
 
 extension WeatherGeneralDto on WeatherGeneralEntity {
-  static WeatherGeneralEntity fromMap(Map<String, dynamic> data) {
+  static WeatherGeneralEntity fromMap(dynamic data) {
     return WeatherGeneralEntity(
-      coord: CoordDto.fromMap(data['coord'] ?? CoordEntity.empty()),
+      coord: CoordDto.fromMap(data['coord'] as Map<String, dynamic>),
       weather: (data['weather'] as List<dynamic>?)
               ?.map<WeatherEntity>((weatherMap) =>
                   WeatherDto.fromMap(weatherMap as Map<String, dynamic>))
               .toList() ??
           List<WeatherEntity>.empty(),
       main: MainDto.fromMap(data['main'] ?? MainEntity.empty()),
-      visibility: data['visibility'] ?? int,
-      wind: WindDto.fromMap(data['wind'] ?? WindEntity.empty()),
-      clouds: CloudsDto.fromMap(data['clouds'] ?? CloudsEntity.empty()),
-      sys: SysDto.fromMap(data['sys'] ?? SysEntity.empty()),
-      timezone: data['timezone'] ?? 0,
-      id: data['id'] ?? 0,
-      name: data['name'] ?? '',
-      cod: data['cod'] ?? 0,
+      visibility: data['visibility'] as int,
+      wind: WindDto.fromMap(data['wind'] as Map<String, dynamic>),
+      clouds: CloudsDto.fromMap(data['clouds'] as Map<String, dynamic>),
+      sys: SysDto.fromMap(data['sys'] as Map<String, dynamic>),
+      timezone: data['timezone'] as int,
+      id: data['id'] as int,
+      name: data['name'] as String,
+      cod: data['cod'] as int,
     );
-  }
-
-  static WeatherGeneralEntity fromJson(String json) {
-    return fromMap(jsonDecode(json));
   }
 }

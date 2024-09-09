@@ -72,13 +72,13 @@ class SettingsOptionsWidget extends StatelessWidget {
   final String name2;
   final String description2;
   const SettingsOptionsWidget({
-    super.key,
     required this.optionName,
     required this.name,
     required this.description,
-    this.optionName2,
     required this.name2,
     required this.description2,
+    super.key,
+    this.optionName2,
   });
 
   @override

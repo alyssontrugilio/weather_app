@@ -11,9 +11,9 @@ class HomePage extends StatefulWidget {
   final String lat;
   final String lon;
   const HomePage({
-    super.key,
     required this.lat,
     required this.lon,
+    super.key,
   });
 
   @override

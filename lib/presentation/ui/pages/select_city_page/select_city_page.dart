@@ -63,24 +63,25 @@ class SearchCityDelegate extends SearchDelegate<CityEntity> {
   final CityFormBloc cityFormBloc;
 
   SearchCityDelegate({
+    required this.cityFormBloc,
     super.searchFieldLabel,
     super.searchFieldStyle,
     super.searchFieldDecorationTheme,
     super.keyboardType,
     super.textInputAction,
-    required this.cityFormBloc,
   });
 
   @override
   List<Widget>? buildActions(BuildContext context) {
     void searhCity() {
-      cityFormBloc.add(CityFormEvent.cityNameChanged(value: query));
-      cityFormBloc.add(const CityFormEvent.submitted());
+      cityFormBloc
+        ..add(CityFormEvent.cityNameChanged(value: query))
+        ..add(const CityFormEvent.submitted());
     }
 
     return [
       IconButton(
-        onPressed: () => searhCity(),
+        onPressed: searhCity,
         icon: const Icon(Icons.search),
       ),
     ];
@@ -107,8 +108,8 @@ class SearchCityDelegate extends SearchDelegate<CityEntity> {
         return ListView.builder(
           itemBuilder: (context, index) => ListTile(
             onTap: () {
-              final String lon = state.city[index].lon.toString();
-              final String lat = state.city[index].lat.toString();
+              final lon = state.city[index].lon.toString();
+              final lat = state.city[index].lat.toString();
               context.go('${AppRoute.homePage}/$lat/$lon');
             },
             title: Text(state.city[index].name),

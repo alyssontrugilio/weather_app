@@ -11,8 +11,8 @@ class CoordEntity with _$CoordEntity {
 
   factory CoordEntity.empty() {
     return const CoordEntity(
-      lon: 0.0,
-      lat: 0.0,
+      lon: 0,
+      lat: 0,
     );
   }
 }

@@ -30,8 +30,8 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '${AppRoute.homePage}/:lat/:lon',
       builder: (context, state) {
-        String lat = state.pathParameters['lat'].toString();
-        String lon = state.pathParameters['lon'].toString();
+        final lat = state.pathParameters['lat'].toString();
+        final lon = state.pathParameters['lon'].toString();
         return HomePage(
           lat: lat,
           lon: lon,

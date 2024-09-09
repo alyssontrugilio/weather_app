@@ -12,9 +12,9 @@ class WindEntity with _$WindEntity {
 
   factory WindEntity.empty() {
     return const WindEntity(
-      speed: 0.0,
+      speed: 0,
       deg: 0,
-      gust: 0.0,
+      gust: 0,
     );
   }
 }

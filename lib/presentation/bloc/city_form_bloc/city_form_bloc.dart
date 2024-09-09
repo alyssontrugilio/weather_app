@@ -10,11 +10,11 @@ part 'city_form_state.dart';
 part 'city_form_event.dart';
 
 class CityFormBloc extends Bloc<CityFormEvent, CityFormState> {
-  final RequestCityUseCase _requestCity;
+  final RequestCityUseCase requestCity;
 
-  CityFormBloc({required requestCity})
-      : _requestCity = requestCity,
-        super(CityFormState.initial()) {
+  CityFormBloc({
+    required this.requestCity,
+  }) : super(CityFormState.initial()) {
     on<CityFormEvent>(onCityFormEvent);
   }
 
@@ -27,7 +27,7 @@ class CityFormBloc extends Bloc<CityFormEvent, CityFormState> {
       submitted: (_) async {
         Either<Failure, List<CityEntity>>? failureOrData;
         emit(state.copyWith(isLoading: true, failureOrData: none()));
-        failureOrData = await _requestCity.call(
+        failureOrData = await requestCity.call(
           cityName: state.cityName,
         );
 

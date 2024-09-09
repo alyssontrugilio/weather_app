@@ -6,9 +6,9 @@ class DialogMessageWidget extends StatelessWidget {
   final String message;
   final Widget footer;
   const DialogMessageWidget({
-    super.key,
     required this.message,
     required this.footer,
+    super.key,
   });
 
   @override

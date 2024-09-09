@@ -40,7 +40,6 @@ class _SearchCityPageState extends State<SearchCityPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   TextFormField(
-                    decoration: const InputDecoration(),
                     onChanged: (value) {
                       cityFormBloc.add(
                         CityFormEvent.cityNameChanged(value: value),

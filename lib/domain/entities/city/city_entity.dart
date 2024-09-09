@@ -15,8 +15,8 @@ class CityEntity with _$CityEntity {
   factory CityEntity.empty() {
     return const CityEntity(
       name: '',
-      lat: 0.0,
-      lon: 0.0,
+      lat: 0,
+      lon: 0,
       country: '',
       state: '',
     );

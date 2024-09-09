@@ -17,10 +17,10 @@ class MainEntity with _$MainEntity {
 
   factory MainEntity.empty() {
     return const MainEntity(
-      temp: 0.0,
-      feelsLike: 0.0,
-      tempMin: 0.0,
-      tempMax: 0.0,
+      temp: 0,
+      feelsLike: 0,
+      tempMin: 0,
+      tempMax: 0,
       pressure: 0,
       humidity: 0,
       seaLevel: 0,

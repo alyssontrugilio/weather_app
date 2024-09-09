@@ -46,7 +46,6 @@ class DetailsPage extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
               'Detalhes',
@@ -57,32 +56,32 @@ class DetailsPage extends StatelessWidget {
             ),
             SizedBox(height: 30),
             _DetailsInfoWidget(
-              title: "Precitação",
+              title: 'Precitação',
               result: '0.0 mm',
             ),
             SizedBox(height: 20),
             _DetailsInfoWidget(
-              title: "SE Wind",
+              title: 'SE Wind',
               result: '10.23 km/h',
             ),
             SizedBox(height: 20),
             _DetailsInfoWidget(
-              title: "Umidade",
+              title: 'Umidade',
               result: '56%',
             ),
             SizedBox(height: 20),
             _DetailsInfoWidget(
-              title: "Visibilidae",
+              title: 'Visibilidae',
               result: '14.83 km',
             ),
             SizedBox(height: 20),
             _DetailsInfoWidget(
-              title: "UV",
+              title: 'UV',
               result: 'Mais baixo',
             ),
             SizedBox(height: 20),
             _DetailsInfoWidget(
-              title: "Pressão",
+              title: 'Pressão',
               result: '1012 hPa',
             ),
           ],
@@ -104,7 +103,6 @@ class _DetailsInfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Text(
           title,

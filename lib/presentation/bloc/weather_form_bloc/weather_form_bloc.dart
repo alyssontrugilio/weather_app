@@ -1,9 +1,8 @@
 import 'dart:async';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/domain.dart';
 part 'weather_form_event.dart';
@@ -11,11 +10,10 @@ part 'weather_form_state.dart';
 part 'weather_form_bloc.freezed.dart';
 
 class WeatherFormBloc extends Bloc<WeatherFormEvent, WeatherFormState> {
-  final RequestWeatherUseCase _requestWeather;
+  final RequestWeatherUseCase requestWeather;
   WeatherFormBloc({
-    required requestWeather,
-  })  : _requestWeather = requestWeather,
-        super(WeatherFormState.initial()) {
+    required this.requestWeather,
+  }) : super(WeatherFormState.initial()) {
     on<WeatherFormEvent>(onWeatherFormEvent);
   }
 
@@ -29,9 +27,9 @@ class WeatherFormBloc extends Bloc<WeatherFormEvent, WeatherFormState> {
         Either<Failure, WeatherGeneralEntity> failureOrDate;
         emit(state.copyWith(isLoading: true, failureOrData: none()));
 
-        failureOrDate = await _requestWeather.call(
-          lat: e.lat.toString(),
-          lon: e.lon.toString(),
+        failureOrDate = await requestWeather.call(
+          lat: e.lat,
+          lon: e.lon,
         );
 
         final newState = state.copyWith(

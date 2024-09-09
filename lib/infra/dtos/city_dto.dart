@@ -1,31 +1,17 @@
-import 'dart:convert';
-
 import '../../domain/domain.dart';
 
 extension CityDto on CityEntity {
-  static List<CityEntity> fromJson(dynamic json) {
-    final listMap = jsonDecode(json) as List;
-
-    return listMap
+  static List<CityEntity> fromMap(List<dynamic> data) {
+    return data
         .map(
-          (city) => CityEntity(
-            name: city['name'],
-            lat: city['lat'],
-            lon: city['lon'],
-            country: city['country'],
-            state: city['state'],
+          (data) => CityEntity(
+            name: data['name'] as String,
+            lat: data['lat'] as double,
+            lon: data['lon'] as double,
+            country: data['country'] as String,
+            state: data['state'] as String,
           ),
         )
         .toList();
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'name': name,
-      'lat': lat,
-      'lon': lon,
-      'country': country,
-      'state': state,
-    };
   }
 }

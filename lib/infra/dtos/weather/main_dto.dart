@@ -5,14 +5,14 @@ import '../../../domain/domain.dart';
 extension MainDto on MainEntity {
   static MainEntity fromMap(dynamic data) {
     return MainEntity(
-      temp: data['temp'] ?? 0,
-      feelsLike: data['feels_like'] ?? 0.0,
-      tempMin: data['temp_min'] ?? 0.0,
-      tempMax: data['temp_max'] ?? 0.0,
-      pressure: data['pressure'] ?? 0,
-      humidity: data['humidity'] ?? 0,
-      seaLevel: data['sea_level'] ?? 0,
-      grndLevel: data['grnd_level'] ?? 0,
+      temp: data['temp'] as double,
+      feelsLike: data['feels_like'] as double,
+      tempMin: data['temp_min'] as double,
+      tempMax: data['temp_max'] as double,
+      pressure: data['pressure'] as int,
+      humidity: data['humidity'] as int,
+      seaLevel: data['sea_level'] as int,
+      grndLevel: data['grnd_level'] as int,
     );
   }
 
