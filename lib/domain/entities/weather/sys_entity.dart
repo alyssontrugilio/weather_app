@@ -5,11 +5,11 @@ part 'sys_entity.freezed.dart';
 @freezed
 class SysEntity with _$SysEntity {
   const factory SysEntity({
-    required int type,
-    required int id,
-    required String country,
-    required int sunrise,
-    required int sunset,
+    required int? type,
+    required int? id,
+    required String? country,
+    required int? sunrise,
+    required int? sunset,
   }) = _SysEntity;
 
   factory SysEntity.empty() {

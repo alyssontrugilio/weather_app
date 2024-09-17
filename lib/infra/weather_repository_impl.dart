@@ -20,7 +20,7 @@ class WeatherRepositoryImpl implements WeatherRepository {
     required String lon,
   }) async {
     final url =
-        '${EnviorementMapper.apiUrlWeather}lat=$lat&lon=$lon&appid=${EnviorementMapper.apiKey}';
+        '${EnviorementMapper.apiUrlWeather}lat=$lat&lon=$lon&lang=pt_br&appid=${EnviorementMapper.apiKey}';
     final response = await client.get(Uri.parse(url));
 
     if (response.body.contains('code')) {

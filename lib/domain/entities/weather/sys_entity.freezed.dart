@@ -16,11 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SysEntity {
-  int get type => throw _privateConstructorUsedError;
-  int get id => throw _privateConstructorUsedError;
-  String get country => throw _privateConstructorUsedError;
-  int get sunrise => throw _privateConstructorUsedError;
-  int get sunset => throw _privateConstructorUsedError;
+  int? get type => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
+  int? get sunrise => throw _privateConstructorUsedError;
+  int? get sunset => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SysEntityCopyWith<SysEntity> get copyWith =>
@@ -32,7 +32,7 @@ abstract class $SysEntityCopyWith<$Res> {
   factory $SysEntityCopyWith(SysEntity value, $Res Function(SysEntity) then) =
       _$SysEntityCopyWithImpl<$Res, SysEntity>;
   @useResult
-  $Res call({int type, int id, String country, int sunrise, int sunset});
+  $Res call({int? type, int? id, String? country, int? sunrise, int? sunset});
 }
 
 /// @nodoc
@@ -48,33 +48,33 @@ class _$SysEntityCopyWithImpl<$Res, $Val extends SysEntity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? id = null,
-    Object? country = null,
-    Object? sunrise = null,
-    Object? sunset = null,
+    Object? type = freezed,
+    Object? id = freezed,
+    Object? country = freezed,
+    Object? sunrise = freezed,
+    Object? sunset = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as int,
-      id: null == id
+              as int?,
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      country: null == country
+              as int?,
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      sunrise: null == sunrise
+              as String?,
+      sunrise: freezed == sunrise
           ? _value.sunrise
           : sunrise // ignore: cast_nullable_to_non_nullable
-              as int,
-      sunset: null == sunset
+              as int?,
+      sunset: freezed == sunset
           ? _value.sunset
           : sunset // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ) as $Val);
   }
 }
@@ -87,7 +87,7 @@ abstract class _$$SysEntityImplCopyWith<$Res>
       __$$SysEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int type, int id, String country, int sunrise, int sunset});
+  $Res call({int? type, int? id, String? country, int? sunrise, int? sunset});
 }
 
 /// @nodoc
@@ -101,33 +101,33 @@ class __$$SysEntityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? id = null,
-    Object? country = null,
-    Object? sunrise = null,
-    Object? sunset = null,
+    Object? type = freezed,
+    Object? id = freezed,
+    Object? country = freezed,
+    Object? sunrise = freezed,
+    Object? sunset = freezed,
   }) {
     return _then(_$SysEntityImpl(
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as int,
-      id: null == id
+              as int?,
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      country: null == country
+              as int?,
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      sunrise: null == sunrise
+              as String?,
+      sunrise: freezed == sunrise
           ? _value.sunrise
           : sunrise // ignore: cast_nullable_to_non_nullable
-              as int,
-      sunset: null == sunset
+              as int?,
+      sunset: freezed == sunset
           ? _value.sunset
           : sunset // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -143,15 +143,15 @@ class _$SysEntityImpl implements _SysEntity {
       required this.sunset});
 
   @override
-  final int type;
+  final int? type;
   @override
-  final int id;
+  final int? id;
   @override
-  final String country;
+  final String? country;
   @override
-  final int sunrise;
+  final int? sunrise;
   @override
-  final int sunset;
+  final int? sunset;
 
   @override
   String toString() {
@@ -183,22 +183,22 @@ class _$SysEntityImpl implements _SysEntity {
 
 abstract class _SysEntity implements SysEntity {
   const factory _SysEntity(
-      {required final int type,
-      required final int id,
-      required final String country,
-      required final int sunrise,
-      required final int sunset}) = _$SysEntityImpl;
+      {required final int? type,
+      required final int? id,
+      required final String? country,
+      required final int? sunrise,
+      required final int? sunset}) = _$SysEntityImpl;
 
   @override
-  int get type;
+  int? get type;
   @override
-  int get id;
+  int? get id;
   @override
-  String get country;
+  String? get country;
   @override
-  int get sunrise;
+  int? get sunrise;
   @override
-  int get sunset;
+  int? get sunset;
   @override
   @JsonKey(ignore: true)
   _$$SysEntityImplCopyWith<_$SysEntityImpl> get copyWith =>
