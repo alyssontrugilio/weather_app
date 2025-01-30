@@ -1,32 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../core/core.dart';
 import '../../../../main/main.dart';
 import '../../../bloc/bloc.dart';
 import '../../widgets/widgets.dart';
-
-String formatDouble(double value) {
-  final stringValue = value.toStringAsFixed(0);
-  if (stringValue.length >= 2) {
-    return stringValue.substring(0, 2);
-  } else {
-    return stringValue;
-  }
-}
-
-String formatDate() {
-  final formattedDate =
-      DateFormat("EEEE, d 'de' MMMM 'de' y", 'pt_BR').format(DateTime.now());
-  return toBeginningOfSentenceCase(formattedDate) ?? formattedDate;
-}
-
-String formatTime(int timestamp) {
-  final dateTime = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
-  return DateFormat('HH:mm').format(dateTime);
-}
 
 class HomePage extends StatefulWidget {
   final String lat;
@@ -124,7 +103,7 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                formatDate(),
+                Formatter.formatDate(),
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
@@ -184,7 +163,7 @@ class _CurrentTemperature extends StatelessWidget {
           text: TextSpan(
             children: [
               TextSpan(
-                text: formatDouble(state.weather.main.temp),
+                text: Formatter.formatDouble(state.weather.main.temp),
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 96,
@@ -239,7 +218,7 @@ class _SunsetTimeWidget extends StatelessWidget {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: formatTime(state.weather.sys.sunset!),
+                    text: Formatter.formatTime(state.weather.sys.sunset!),
                     style: const TextStyle(
                       color: AppColors.kTextgrey,
                     ),
@@ -277,7 +256,7 @@ class _SunriseTimeWidget extends StatelessWidget {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: formatTime(state.weather.sys.sunrise!),
+                    text: Formatter.formatTime(state.weather.sys.sunrise!),
                     style: const TextStyle(
                       color: AppColors.kTextgrey,
                     ),
@@ -316,7 +295,7 @@ class _TempMaxWidget extends StatelessWidget {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: formatDouble(state.weather.main.tempMax),
+                    text: Formatter.formatDouble(state.weather.main.tempMax),
                     style: const TextStyle(
                       color: AppColors.kTextgrey,
                       fontSize: 18,
@@ -359,7 +338,7 @@ class _TempMinWidget extends StatelessWidget {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: formatDouble(state.weather.main.tempMin),
+                    text: Formatter.formatDouble(state.weather.main.tempMin),
                     style: const TextStyle(
                       color: AppColors.kTextgrey,
                       fontSize: 18,

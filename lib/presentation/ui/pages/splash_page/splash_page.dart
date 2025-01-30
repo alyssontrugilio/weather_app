@@ -12,10 +12,12 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    Future.delayed(
-      const Duration(seconds: 3),
-      () => context.go(AppRoute.selectCityPage),
-    );
+    Future.delayed(const Duration(seconds: 3), () {
+      if (mounted) {
+        context.go(
+            '${AppRoute.homePage}/-23.425269/-51.9382078'); //TODO: Aplicar geolocalização
+      }
+    });
     super.initState();
   }
 

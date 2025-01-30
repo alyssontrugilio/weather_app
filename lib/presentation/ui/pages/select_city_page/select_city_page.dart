@@ -34,7 +34,7 @@ class _SelectCityPageState extends State<SelectCityPage> {
     return BlocProvider.value(
       value: cityFormBloc,
       child: Scaffold(
-        body: AppBar(
+        appBar: AppBar(
           title: const Text('Selecione a cidade'),
           leading: IconButton(
             onPressed: () => context.go(AppRoute.homePage),
@@ -53,6 +53,18 @@ class _SelectCityPageState extends State<SelectCityPage> {
             ),
             const SizedBox(width: 20),
           ],
+        ),
+        body: ListView.builder(
+          itemBuilder: (context, index) => ListTile(
+            onTap: () {
+              const lon = '-23.425269';
+              const lat = '-51.9382078';
+              context.go('${AppRoute.homePage}/$lat/$lon');
+            },
+            title: const Text('Teste'),
+            subtitle: const Text('Testando '),
+          ),
+          itemCount: 5,
         ),
       ),
     );

@@ -7,7 +7,6 @@ class AppRoute {
   static const String homePage = '/home_page';
   static const String settingsPage = '/settings_page';
   static const String detailsPage = '/details_page';
-  static const String searchCityPage = '/search_city_page';
   static const String selectCityPage = '/select_city_page';
 }
 
@@ -45,10 +44,6 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppRoute.detailsPage,
       builder: (context, state) => const DetailsPage(),
-    ),
-    GoRoute(
-      path: AppRoute.searchCityPage,
-      builder: (context, state) => const SearchCityPage(),
     ),
     GoRoute(
       path: AppRoute.selectCityPage,
